@@ -1,0 +1,21 @@
+{%extends "layout.html"%}
+
+{% block content %}
+<h1 class="text-5xl  text-center font-black font-serif ">TO-Do List</h1>
+<a href="{%url 'task_add'%}" type="button" class="inline-flex items-center justify-center w-[100%] px-4 py-2 border border-transparent text-sm 
+font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 
+focus:ring-offset-2 focus:ring-orange-500">ADD task</a>
+<div class="grid grid-cols-2 gap-4">
+    <div class="1">
+        {%for task in tasks%}
+        <div class="bg-pink-400 p-2 m-4  rounded-md">
+        <h1 class="font-bold text-3xl">{{task.task}}</h1>
+        <button class="inline-flex bg-blue-500 rounded-md text-center justify-center">{{task.date}}</button>
+        <p>deadline-{{task.dead_line}} of {{task.last_date}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
